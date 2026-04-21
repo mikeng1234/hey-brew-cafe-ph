@@ -66,7 +66,7 @@ export default function FranchiseInquiry() {
             {[
               { icon: "phone", text: "0967 796 3243", href: "tel:09677963243" },
               { icon: "mail", text: "heybrewcafeph@gmail.com", href: "mailto:heybrewcafeph@gmail.com" },
-              { icon: "thumb_up", text: "Facebook Page", href: "https://www.facebook.com/HeyBrewPH", external: true },
+              { icon: "thumb_up", text: "Facebook Page", href: "https://www.facebook.com/HeyBrewPH/", external: true },
             ].map((item) => (
               <div key={item.icon} className="flex items-center gap-3">
                 <span

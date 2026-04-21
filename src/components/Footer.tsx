@@ -50,7 +50,7 @@ export default function Footer() {
           <div className="md:col-span-1">
             <h5 className="font-headline font-bold text-sm mb-4" style={{ color: "#501818" }}>Connect</h5>
             <a
-              href="https://www.facebook.com/HeyBrewPH"
+              href="https://www.facebook.com/HeyBrewPH/"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 font-body text-sm transition-colors duration-200 opacity-80 hover:opacity-100"

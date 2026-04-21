@@ -1,38 +1,33 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
-    <header className="relative pt-32 pb-24 lg:pt-48 lg:pb-32 min-h-[820px] flex items-center overflow-hidden">
-      {/* Background — warm coffee gradient placeholder (swap for real photo later) */}
-      <div
-        className="absolute inset-0 z-0"
-        style={{
-          background:
-            "linear-gradient(135deg, #1a0805 0%, #340406 35%, #501818 65%, #6b2b1a 100%)",
-        }}
-      >
-        {/* Texture overlay */}
-        <div
-          className="absolute inset-0 opacity-20"
-          style={{
-            backgroundImage:
-              "radial-gradient(ellipse at 30% 60%, rgba(254,162,119,0.25) 0%, transparent 60%), radial-gradient(ellipse at 70% 20%, rgba(146,75,39,0.3) 0%, transparent 55%)",
-          }}
+    <header className="relative min-h-[820px] flex items-center overflow-hidden">
+      {/* Real hero background */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/images/hb-hero.png"
+          alt="Hey Brew Cafe PH — artisanal coffee"
+          fill
+          className="object-cover object-center"
+          priority
+          quality={90}
         />
-        {/* Gradient overlay */}
+        {/* Top-to-bottom: dark at top (text area) → transparent at bottom */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(to right, rgba(52,4,6,0.92) 0%, rgba(52,4,6,0.65) 55%, rgba(52,4,6,0.3) 100%)",
+              "linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.2) 50%, transparent 100%)",
           }}
         />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 w-full pt-24">
         <div className="max-w-2xl">
           <motion.span
             className="label block text-sm mb-4 font-semibold"
@@ -51,7 +46,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.85, delay: 0.3 }}
           >
-            HEY BREW CAFE PH{" "}
+            HEY BREW CAFE PH
             <br />
             <span
               className="font-medium italic"
@@ -73,13 +68,14 @@ export default function Hero() {
           </motion.p>
 
           <motion.div
+            className="flex flex-col sm:flex-row gap-4"
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.6 }}
           >
             <a
               href="#inquiry"
-              className="inline-flex items-center gap-2 bg-[#501818] text-white px-8 py-4 rounded font-headline font-bold text-lg shadow-lg hover:bg-[#340406] hover:shadow-xl transition-all duration-200 group"
+              className="inline-flex items-center justify-center gap-2 bg-[#501818] text-white px-8 py-4 rounded font-headline font-bold text-lg shadow-lg hover:bg-[#340406] hover:shadow-xl transition-all duration-200 group"
             >
               Start Your Journey
               <span
@@ -89,6 +85,12 @@ export default function Hero() {
               >
                 arrow_forward
               </span>
+            </a>
+            <a
+              href="#pricing"
+              className="inline-flex items-center justify-center gap-2 border border-white/40 text-white/90 px-8 py-4 rounded font-headline font-bold text-lg hover:border-[#fea277] hover:text-[#fea277] transition-all duration-200"
+            >
+              View Packages
             </a>
           </motion.div>
         </div>
@@ -103,7 +105,7 @@ export default function Hero() {
       >
         <span
           className="material-symbols-outlined text-4xl animate-bounce"
-          style={{ color: "rgba(254,162,119,0.45)" }}
+          style={{ color: "rgba(254,162,119,0.5)" }}
           aria-hidden="true"
         >
           expand_more
