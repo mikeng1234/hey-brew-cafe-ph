@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+@theme {
+  /* Surfaces — warm cream */
+  --color-surface:                   #fcf9f4;
+  --color-surface-bright:            #fcf9f4;
+  --color-surface-container-lowest:  #ffffff;
+  --color-surface-container-low:     #f6f3ee;
+  --color-surface-container:         #f0ede8;
+  --color-surface-container-high:    #ebe8e3;
+  --color-surface-container-highest: #e5e2dd;
+  --color-surface-dim:               #dcdad5;
+  --color-surface-variant:           #e5e2dd;
+
+  /* Brand palette — heritage coffee */
+  --color-primary:                   #340406;
+  --color-primary-container:         #501818;
+  --color-primary-fixed:             #ffdad7;
+  --color-primary-fixed-dim:         #ffb3af;
+  --color-on-primary:                #ffffff;
+  --color-on-primary-container:      #ce7c78;
+
+  --color-secondary:                 #924b27;
+  --color-secondary-container:       #fea277;
+  --color-secondary-fixed:           #ffdbcc;
+  --color-secondary-fixed-dim:       #ffb695;
+  --color-on-secondary:              #ffffff;
+  --color-on-secondary-container:    #773614;
+  --color-on-secondary-fixed:        #351000;
+
+  --color-tertiary:                  #161717;
+  --color-tertiary-container:        #2b2b2b;
+  --color-tertiary-fixed:            #e4e2e1;
+  --color-tertiary-fixed-dim:        #c8c6c6;
+  --color-on-tertiary:               #ffffff;
+
+  /* Text */
+  --color-on-background:             #1c1c19;
+  --color-on-surface:                #1c1c19;
+  --color-on-surface-variant:        #534342;
+  --color-inverse-on-surface:        #f3f0eb;
+  --color-inverse-surface:           #31302d;
+
+  /* Borders */
+  --color-outline:                   #867371;
+  --color-outline-variant:           #d9c1bf;
+
+  /* Misc */
+  --color-error:                     #ba1a1a;
+  --color-error-container:           #ffdad6;
+  --color-surface-tint:              #904a47;
+  --color-inverse-primary:           #ffb3af;
+
+  /* Fonts */
+  --font-headline: var(--font-jakarta);
+  --font-body:     var(--font-vietnam);
+  --font-label:    var(--font-vietnam);
+}
+
+/* ── Base ── */
+html, body {
+  background-color: var(--color-surface);
+  color: var(--color-on-surface);
+  font-family: var(--font-body), sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Typography ── */
+h1, h2, h3, h4, h5, h6, .font-headline {
+  font-family: var(--font-headline), sans-serif;
+}
+
+/* ── Label utility ── */
+.label {
+  font-family: var(--font-label), sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.72rem;
+}
+
+/* ── Material Symbols — filled ── */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar        { width: 4px; }
+::-webkit-scrollbar-track  { background: var(--color-surface-container-low); }
+::-webkit-scrollbar-thumb  { background: var(--color-outline-variant); }
+::-webkit-scrollbar-thumb:hover { background: var(--color-outline); }
+
+/* ── Form inputs — bordered ── */
+.input-bordered {
+  width: 100%;
+  background: var(--color-surface-container-lowest);
+  border: 1px solid rgba(217, 193, 191, 0.5);
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  color: var(--color-on-surface);
+  font-family: var(--font-body), sans-serif;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.input-bordered::placeholder { color: var(--color-outline-variant); }
+.input-bordered:focus {
+  border-color: var(--color-secondary);
+  box-shadow: 0 0 0 1px var(--color-secondary);
+}
