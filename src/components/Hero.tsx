@@ -16,12 +16,12 @@ export default function Hero() {
           priority
           quality={90}
         />
-        {/* Top-to-bottom: dark at top (text area) → transparent at bottom */}
+        {/* Black → clear → black top to bottom */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.2) 50%, transparent 100%)",
+              "linear-gradient(to bottom, rgba(0,0,0,0.65) 0%, transparent 50%, rgba(0,0,0,0.65) 100%)",
           }}
         />
       </div>
