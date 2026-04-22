@@ -75,7 +75,7 @@ export default function Hero() {
           >
             <a
               href="#inquiry"
-              className="inline-flex items-center justify-center gap-2 bg-[#501818] text-white px-8 py-4 rounded font-headline font-bold text-lg shadow-lg hover:bg-[#340406] hover:shadow-xl transition-all duration-200 group"
+              className="inline-flex items-center justify-center gap-2 bg-[#501818] text-white px-8 py-4 rounded-lg font-headline font-bold text-lg hover:bg-[#340406] transition-all duration-200 active:scale-[0.92] group"
             >
               Start Your Journey
               <span
@@ -88,7 +88,7 @@ export default function Hero() {
             </a>
             <a
               href="#pricing"
-              className="inline-flex items-center justify-center gap-2 border border-white/40 text-white/90 px-8 py-4 rounded font-headline font-bold text-lg hover:border-[#fea277] hover:text-[#fea277] transition-all duration-200"
+              className="inline-flex items-center justify-center gap-2 border border-white/40 text-white/90 px-8 py-4 rounded-lg font-headline font-bold text-lg hover:border-[#fea277] hover:text-[#fea277] transition-all duration-200 active:scale-[0.92]"
             >
               View Packages
             </a>

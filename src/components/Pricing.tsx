@@ -66,7 +66,7 @@ export default function Pricing() {
           </motion.p>
           <motion.h2
             className="font-headline text-4xl lg:text-5xl font-extrabold mb-4"
-            style={{ color: "#1c1c19" }}
+            style={{ color: "#1c1c19", letterSpacing: "-0.03em" }}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -94,12 +94,13 @@ export default function Pricing() {
               key={pkg.name}
               className={`rounded-2xl p-8 flex flex-col relative overflow-hidden ${
                 pkg.highlight
-                  ? "text-white shadow-2xl shadow-[#501818]/20"
-                  : "border border-[#d9c1bf]/30"
+                  ? "text-white"
+                  : "border border-[#e5e2dd]"
               }`}
-              style={{
-                background: pkg.highlight ? "#501818" : "#fcf9f4",
-              }}
+              style={pkg.highlight ? {
+                background: "#501818",
+                boxShadow: "rgba(0,0,0,0.02) 0 0 0 1px, rgba(0,0,0,0.06) 0 4px 12px 0, rgba(80,24,24,0.18) 0 8px 24px 0",
+              } : { background: "#fcf9f4" }}
               initial={{ opacity: 0, y: 28 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -176,7 +177,7 @@ export default function Pricing() {
               {/* CTA */}
               <a
                 href="#inquiry"
-                className="block text-center py-3.5 rounded-xl font-headline font-bold transition-all duration-200"
+                className="block text-center py-3.5 rounded-lg font-headline font-bold transition-all duration-200 active:scale-[0.92]"
                 style={
                   pkg.highlight
                     ? { background: "#fea277", color: "#340406" }
@@ -249,7 +250,7 @@ export default function Pricing() {
         >
           <a
             href="#inquiry"
-            className="inline-flex items-center gap-2 bg-[#501818] text-white px-10 py-4 rounded-xl font-headline font-bold text-lg shadow-lg hover:bg-[#340406] hover:shadow-xl transition-all duration-200 group"
+            className="inline-flex items-center gap-2 bg-[#501818] text-white px-10 py-4 rounded-lg font-headline font-bold text-lg hover:bg-[#340406] transition-all duration-200 active:scale-[0.92] group"
           >
             Book Us Now!
             <span

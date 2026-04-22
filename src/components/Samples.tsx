@@ -37,7 +37,7 @@ export default function Samples() {
           </motion.p>
           <motion.h2
             className="font-headline text-4xl lg:text-5xl font-extrabold mb-4"
-            style={{ color: "#1c1c19" }}
+            style={{ color: "#1c1c19", letterSpacing: "-0.03em" }}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -63,7 +63,7 @@ export default function Samples() {
           {SAMPLES.map((img, i) => (
             <motion.div
               key={img.src}
-              className="break-inside-avoid overflow-hidden rounded-lg group"
+              className="break-inside-avoid overflow-hidden rounded-[14px] group"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}

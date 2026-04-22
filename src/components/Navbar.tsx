@@ -54,7 +54,7 @@ export default function Navbar() {
         {/* CTA */}
         <a
           href="#inquiry"
-          className="hidden md:block bg-[#501818] text-white px-6 py-2.5 rounded font-headline font-bold text-sm hover:bg-[#340406] transition-colors duration-200"
+          className="hidden md:block bg-[#501818] text-white px-6 py-2.5 rounded-lg font-headline font-bold text-sm hover:bg-[#340406] transition-all duration-200 active:scale-[0.92]"
         >
           Inquire Now
         </a>

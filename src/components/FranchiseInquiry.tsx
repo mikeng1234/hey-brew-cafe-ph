@@ -27,7 +27,7 @@ export default function FranchiseInquiry() {
           </span>
           <h2
             className="font-headline text-4xl lg:text-5xl font-extrabold mb-6 leading-tight"
-            style={{ color: "#1c1c19" }}
+            style={{ color: "#1c1c19", letterSpacing: "-0.03em" }}
           >
             Ready to brew success?
           </h2>
@@ -94,8 +94,11 @@ export default function FranchiseInquiry() {
 
         {/* Right — form */}
         <motion.div
-          className="rounded-xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-[#d9c1bf]/20 relative"
-          style={{ background: "#fcf9f4" }}
+          className="rounded-2xl p-8 border border-[#e5e2dd] relative"
+          style={{
+            background: "#fcf9f4",
+            boxShadow: "rgba(0,0,0,0.02) 0 0 0 1px, rgba(0,0,0,0.04) 0 2px 6px 0, rgba(0,0,0,0.08) 0 8px 24px 0",
+          }}
           initial={{ opacity: 0, x: 24 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
@@ -213,7 +216,7 @@ export default function FranchiseInquiry() {
 
             <button
               type="submit"
-              className="w-full bg-[#501818] text-white py-4 rounded-xl font-headline font-bold text-lg hover:bg-[#340406] transition-colors duration-200 mt-4 shadow-md"
+              className="w-full bg-[#501818] text-white py-4 rounded-lg font-headline font-bold text-lg hover:bg-[#340406] transition-all duration-200 active:scale-[0.97] mt-4"
             >
               Submit Inquiry
             </button>

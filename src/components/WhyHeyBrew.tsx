@@ -44,8 +44,8 @@ export default function WhyHeyBrew() {
             The Synergy
           </motion.h2>
           <motion.h3
-            className="font-headline text-4xl lg:text-5xl font-extrabold mb-6"
-            style={{ color: "#1c1c19" }}
+            className="font-headline text-4xl lg:text-5xl font-extrabold mb-6 tracking-tight"
+            style={{ color: "#1c1c19", letterSpacing: "-0.03em" }}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -71,7 +71,7 @@ export default function WhyHeyBrew() {
           {CARDS.map((card, i) => (
             <motion.div
               key={card.title}
-              className="rounded-xl p-8 relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300"
+              className="rounded-xl p-8 relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 border border-[#e5e2dd]"
               style={{ background: "#f6f3ee" }}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
