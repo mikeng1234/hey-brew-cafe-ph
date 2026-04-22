@@ -16,14 +16,8 @@ export default function Hero() {
           priority
           quality={90}
         />
-        {/* Black → clear → black top to bottom */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(to bottom, rgba(0,0,0,0.65) 0%, transparent 50%, rgba(0,0,0,0.65) 100%)",
-          }}
-        />
+        {/* Uniform dark scrim */}
+        <div className="absolute inset-0 bg-black/55" />
       </div>
 
       {/* Content */}
