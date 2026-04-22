@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 const NAV_LINKS = [
   { label: "Our Story",    href: "#why" },
@@ -31,11 +32,15 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Brand */}
-        <a
-          href="#"
-          className="font-headline text-xl font-black text-[#501818] tracking-tight shrink-0"
-        >
-          Hey Brew Cafe PH
+        <a href="#" className="shrink-0">
+          <Image
+            src="/images/hb-logo-horizontal.png"
+            alt="Hey Brew Cafe PH"
+            height={40}
+            width={180}
+            className="h-9 w-auto object-contain"
+            priority
+          />
         </a>
 
         {/* Desktop nav */}
