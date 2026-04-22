@@ -26,9 +26,9 @@ export default function Navbar() {
       aria-label="Site Navigation"
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[#fcf9f4]/93 shadow-[0_4px_24px_rgba(28,28,25,0.08)]"
-          : "bg-[#fcf9f4]/80"
-      } border-b border-[#d9c1bf]/15 backdrop-blur-md`}
+          ? "bg-black/95 shadow-[0_4px_24px_rgba(0,0,0,0.3)]"
+          : "bg-black/90"
+      } border-b border-white/10 backdrop-blur-md`}
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Brand */}
@@ -44,7 +44,7 @@ export default function Navbar() {
         </a>
 
         {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-8 text-sm font-bold uppercase tracking-tight text-[#1c1c19]">
+        <div className="hidden md:flex items-center gap-8 text-sm font-bold uppercase tracking-tight text-white/90">
           {NAV_LINKS.map((link) => (
             <a
               key={link.label}
@@ -66,7 +66,7 @@ export default function Navbar() {
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden text-[#501818] p-2"
+          className="md:hidden text-white p-2"
           onClick={() => setMenuOpen((v) => !v)}
           aria-expanded={menuOpen}
           aria-label="Toggle menu"
@@ -77,7 +77,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden bg-[#fcf9f4] border-t border-[#d9c1bf]/20 px-6 py-5 flex flex-col gap-4 text-sm font-bold uppercase tracking-tight text-[#1c1c19]">
+        <div className="md:hidden bg-black border-t border-white/10 px-6 py-5 flex flex-col gap-4 text-sm font-bold uppercase tracking-tight text-white/90">
           {NAV_LINKS.map((link) => (
             <a
               key={link.label}
