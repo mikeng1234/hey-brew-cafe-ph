@@ -35,7 +35,7 @@ export default function UrgencyBanner() {
         {/* CTA */}
         <a
           href="#inquiry"
-          className="shrink-0 bg-[#924b27] text-white px-6 py-2 rounded label text-sm font-semibold hover:bg-[#7a3e20] transition-colors border border-[#d9c1bf]/20"
+          className="shrink-0 bg-[#924b27] text-white px-6 py-2 rounded label text-sm font-semibold hover:bg-[#7a3e20] transition-colors border border-[#d9c1bf]/20 active:scale-[0.95] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#fea277]"
         >
           Claim Promo
         </a>

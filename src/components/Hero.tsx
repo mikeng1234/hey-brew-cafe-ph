@@ -15,6 +15,7 @@ export default function Hero() {
           className="object-cover object-center"
           priority
           quality={90}
+          onError={(e) => { (e.currentTarget as HTMLImageElement).style.opacity = "0"; }}
         />
         {/* Uniform dark scrim */}
         <div className="absolute inset-0 bg-black/55" />
@@ -69,7 +70,7 @@ export default function Hero() {
           >
             <a
               href="#inquiry"
-              className="inline-flex items-center justify-center gap-2 bg-[#501818] text-white px-8 py-4 rounded-lg font-headline font-bold text-lg hover:bg-[#340406] transition-all duration-200 active:scale-[0.92] group"
+              className="inline-flex items-center justify-center gap-2 bg-[#501818] text-white px-8 py-4 rounded-lg font-headline font-bold text-lg hover:bg-[#340406] transition-all duration-200 active:scale-[0.92] group focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#fea277]"
             >
               Start Your Journey
               <span
@@ -82,7 +83,7 @@ export default function Hero() {
             </a>
             <a
               href="#pricing"
-              className="inline-flex items-center justify-center gap-2 border border-white/40 text-white/90 px-8 py-4 rounded-lg font-headline font-bold text-lg hover:border-[#fea277] hover:text-[#fea277] transition-all duration-200 active:scale-[0.92]"
+              className="inline-flex items-center justify-center gap-2 border border-white/40 text-white/90 px-8 py-4 rounded-lg font-headline font-bold text-lg hover:border-[#fea277] hover:text-[#fea277] transition-all duration-200 active:scale-[0.92] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#fea277]"
             >
               View Packages
             </a>

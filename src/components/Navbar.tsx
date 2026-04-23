@@ -4,11 +4,10 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 
 const NAV_LINKS = [
-  { label: "Our Story",    href: "#why" },
-  { label: "Products",     href: "#why" },
-  { label: "Franchise ROI",href: "#inquiry" },
-  { label: "Support",      href: "#inquiry" },
-  { label: "Locations",    href: "#inquiry" },
+  { label: "Why Join",  href: "#why" },
+  { label: "Gallery",   href: "#gallery" },
+  { label: "Packages",  href: "#pricing" },
+  { label: "Inquire",   href: "#inquiry" },
 ];
 
 export default function Navbar() {
@@ -40,6 +39,12 @@ export default function Navbar() {
             width={180}
             className="h-9 w-auto object-contain"
             priority
+            onError={(e) => {
+              const el = e.currentTarget as HTMLImageElement;
+              el.style.display = "none";
+              const fallback = el.parentElement;
+              if (fallback) fallback.textContent = "HEY BREW CAFE PH";
+            }}
           />
         </a>
 
@@ -49,7 +54,7 @@ export default function Navbar() {
             <a
               key={link.label}
               href={link.href}
-              className="hover:text-[#924b27] transition-colors duration-200"
+              className="hover:text-[#924b27] transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#924b27] rounded"
             >
               {link.label}
             </a>
@@ -59,30 +64,39 @@ export default function Navbar() {
         {/* CTA */}
         <a
           href="#inquiry"
-          className="hidden md:block bg-[#501818] text-white px-6 py-2.5 rounded-lg font-headline font-bold text-sm hover:bg-[#340406] transition-all duration-200 active:scale-[0.92]"
+          className="hidden md:block bg-[#501818] text-white px-6 py-2.5 rounded-lg font-headline font-bold text-sm hover:bg-[#340406] transition-all duration-200 active:scale-[0.92] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#fea277]"
         >
           Inquire Now
         </a>
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden text-white p-2"
+          className="md:hidden text-white p-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#924b27] rounded"
           onClick={() => setMenuOpen((v) => !v)}
           aria-expanded={menuOpen}
+          aria-controls="mobile-nav"
           aria-label="Toggle menu"
         >
           <span className="material-symbols-outlined">{menuOpen ? "close" : "menu"}</span>
         </button>
       </div>
 
+      {/* Outside-click overlay */}
+      {menuOpen && (
+        <div
+          className="fixed inset-0 z-40 md:hidden"
+          onClick={() => setMenuOpen(false)}
+        />
+      )}
+
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden bg-black border-t border-white/10 px-6 py-5 flex flex-col gap-4 text-sm font-bold uppercase tracking-tight text-white/90">
+        <nav id="mobile-nav" aria-label="Mobile navigation" className="md:hidden relative z-50 bg-black border-t border-white/10 px-6 py-5 flex flex-col gap-4 text-sm font-bold uppercase tracking-tight text-white/90">
           {NAV_LINKS.map((link) => (
             <a
               key={link.label}
               href={link.href}
-              className="hover:text-[#924b27] transition-colors"
+              className="hover:text-[#924b27] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#924b27] rounded"
               onClick={() => setMenuOpen(false)}
             >
               {link.label}
@@ -90,12 +104,12 @@ export default function Navbar() {
           ))}
           <a
             href="#inquiry"
-            className="mt-2 bg-[#501818] text-white text-center px-6 py-3 rounded font-headline font-bold hover:bg-[#340406] transition-colors"
+            className="mt-2 bg-[#501818] text-white text-center px-6 py-3 rounded font-headline font-bold hover:bg-[#340406] transition-colors active:scale-[0.95] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#fea277]"
             onClick={() => setMenuOpen(false)}
           >
             Inquire Now
           </a>
-        </div>
+        </nav>
       )}
     </nav>
   );

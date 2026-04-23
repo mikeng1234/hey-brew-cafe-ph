@@ -177,7 +177,7 @@ export default function Pricing() {
               {/* CTA */}
               <a
                 href="#inquiry"
-                className="block text-center py-3.5 rounded-lg font-headline font-bold transition-all duration-200 active:scale-[0.92]"
+                className="block text-center py-3.5 rounded-lg font-headline font-bold transition-all duration-200 active:scale-[0.92] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#fea277]"
                 style={
                   pkg.highlight
                     ? { background: "#fea277", color: "#340406" }
@@ -250,7 +250,7 @@ export default function Pricing() {
         >
           <a
             href="#inquiry"
-            className="inline-flex items-center gap-2 bg-[#501818] text-white px-10 py-4 rounded-lg font-headline font-bold text-lg hover:bg-[#340406] transition-all duration-200 active:scale-[0.92] group"
+            className="inline-flex items-center gap-2 bg-[#501818] text-white px-10 py-4 rounded-lg font-headline font-bold text-lg hover:bg-[#340406] transition-all duration-200 active:scale-[0.92] group focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#fea277]"
           >
             Book Us Now!
             <span

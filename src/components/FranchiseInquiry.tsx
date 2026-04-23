@@ -1,8 +1,21 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 
+type Status = "idle" | "submitting" | "success" | "error";
+
 export default function FranchiseInquiry() {
+  const [status, setStatus] = useState<Status>("idle");
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setStatus("submitting");
+    // TODO: replace with real API route or Formspree endpoint
+    await new Promise((r) => setTimeout(r, 1200));
+    setStatus("success");
+  }
+
   return (
     <section
       id="inquiry"
@@ -64,9 +77,9 @@ export default function FranchiseInquiry() {
           {/* Contact info */}
           <div className="space-y-3">
             {[
-              { icon: "phone", text: "0967 796 3243", href: "tel:09677963243" },
-              { icon: "mail", text: "heybrewcafeph@gmail.com", href: "mailto:heybrewcafeph@gmail.com" },
-              { icon: "thumb_up", text: "Hey Brew", href: "https://www.facebook.com/HeyBrewPH/", external: true },
+              { icon: "phone",    text: "0967 796 3243",           href: "tel:09677963243" },
+              { icon: "mail",     text: "heybrewcafeph@gmail.com", href: "mailto:heybrewcafeph@gmail.com" },
+              { icon: "thumb_up", text: "Hey Brew",                href: "https://www.facebook.com/HeyBrewPH/", external: true },
             ].map((item) => (
               <div key={item.icon} className="flex items-center gap-3">
                 <span
@@ -110,121 +123,120 @@ export default function FranchiseInquiry() {
             style={{ background: "rgba(146,75,39,0.1)" }}
           />
 
-          <form className="space-y-6 relative z-10" action="#" onSubmit={(e) => e.preventDefault()}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label
-                  htmlFor="firstName"
-                  className="block label text-sm font-semibold mb-2"
-                  style={{ color: "#1c1c19" }}
+          <h3 className="font-headline font-bold text-lg mb-6 relative z-10" style={{ color: "#1c1c19" }}>
+            Franchise Inquiry
+          </h3>
+
+          <div aria-live="polite" aria-atomic="true" className="relative z-10">
+            {status === "success" ? (
+              <div className="flex flex-col items-center justify-center py-12 text-center gap-4">
+                <span className="text-4xl">🎉</span>
+                <h4 className="font-headline font-bold text-base" style={{ color: "#1c1c19" }}>
+                  Inquiry Received!
+                </h4>
+                <p className="font-body text-sm" style={{ color: "#534342" }}>
+                  Our team will reach out to you within 1–2 business days.
+                </p>
+                <button
+                  onClick={() => setStatus("idle")}
+                  className="mt-2 text-xs underline transition-colors duration-200 font-body"
+                  style={{ color: "#534342" }}
+                  onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.color = "#924b27"; }}
+                  onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.color = "#534342"; }}
                 >
-                  First Name
-                </label>
-                <input
-                  id="firstName"
-                  name="firstName"
-                  type="text"
-                  placeholder="Juan"
-                  className="input-bordered"
-                />
+                  Submit another inquiry
+                </button>
               </div>
-              <div>
-                <label
-                  htmlFor="lastName"
-                  className="block label text-sm font-semibold mb-2"
-                  style={{ color: "#1c1c19" }}
+            ) : (
+              <form className="space-y-6" onSubmit={handleSubmit} noValidate>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="firstName" className="block label text-sm font-semibold mb-2" style={{ color: "#1c1c19" }}>
+                      First Name <span style={{ color: "#924b27" }}>*</span>
+                    </label>
+                    <input id="firstName" name="firstName" type="text" required placeholder="Juan" className="input-bordered" />
+                  </div>
+                  <div>
+                    <label htmlFor="lastName" className="block label text-sm font-semibold mb-2" style={{ color: "#1c1c19" }}>
+                      Last Name <span style={{ color: "#924b27" }}>*</span>
+                    </label>
+                    <input id="lastName" name="lastName" type="text" required placeholder="Dela Cruz" className="input-bordered" />
+                  </div>
+                </div>
+
+                <div>
+                  <label htmlFor="mobile" className="block label text-sm font-semibold mb-2" style={{ color: "#1c1c19" }}>
+                    Mobile Number <span style={{ color: "#924b27" }}>*</span>
+                  </label>
+                  <input
+                    id="mobile" name="mobile" type="tel" required
+                    placeholder="+63 900 000 0000"
+                    pattern="^(\+?63|0)9\d{9}$"
+                    className="input-bordered"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="email" className="block label text-sm font-semibold mb-2" style={{ color: "#1c1c19" }}>
+                    Email Address <span style={{ color: "#924b27" }}>*</span>
+                  </label>
+                  <input id="email" name="email" type="email" required placeholder="juan@example.com" className="input-bordered" />
+                </div>
+
+                <div>
+                  <label htmlFor="location" className="block label text-sm font-semibold mb-2" style={{ color: "#1c1c19" }}>
+                    Target Location <span style={{ color: "#924b27" }}>*</span>
+                  </label>
+                  <input id="location" name="location" type="text" required placeholder="City or Province" className="input-bordered" />
+                </div>
+
+                <div>
+                  <label htmlFor="capital" className="block label text-sm font-semibold mb-2" style={{ color: "#1c1c19" }}>
+                    Available Capital <span style={{ color: "#924b27" }}>*</span>
+                  </label>
+                  <div className="relative">
+                    <select id="capital" name="capital" required className="input-bordered appearance-none cursor-pointer pr-8">
+                      <option value="">Select a range</option>
+                      <option value="below_500k">Below ₱500,000</option>
+                      <option value="500k_1m">₱500,000 – ₱1,000,000</option>
+                      <option value="1m_2m">₱1,000,000 – ₱2,000,000</option>
+                      <option value="above_2m">Above ₱2,000,000</option>
+                    </select>
+                    <svg
+                      className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none"
+                      width="14" height="14" viewBox="0 0 24 24"
+                      fill="none" stroke="#867371" strokeWidth="2"
+                      strokeLinecap="round" strokeLinejoin="round"
+                      aria-hidden="true"
+                    >
+                      <polyline points="6 9 12 15 18 9" />
+                    </svg>
+                  </div>
+                </div>
+
+                {status === "error" && (
+                  <p className="text-xs text-center font-body" style={{ color: "#ba1a1a" }}>
+                    Something went wrong. Please try again or contact us directly.
+                  </p>
+                )}
+
+                <button
+                  type="submit"
+                  disabled={status === "submitting"}
+                  className="w-full py-4 rounded-lg font-headline font-bold text-lg transition-all duration-200 active:scale-[0.97] disabled:opacity-60 disabled:cursor-not-allowed mt-4"
+                  style={{ background: "#501818", color: "#ffffff" }}
+                  onMouseEnter={(e) => { if (status !== "submitting") (e.currentTarget as HTMLButtonElement).style.background = "#340406"; }}
+                  onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "#501818"; }}
                 >
-                  Last Name
-                </label>
-                <input
-                  id="lastName"
-                  name="lastName"
-                  type="text"
-                  placeholder="Dela Cruz"
-                  className="input-bordered"
-                />
-              </div>
-            </div>
+                  {status === "submitting" ? "Sending…" : "Submit Inquiry"}
+                </button>
 
-            <div>
-              <label
-                htmlFor="mobile"
-                className="block label text-sm font-semibold mb-2"
-                style={{ color: "#1c1c19" }}
-              >
-                Mobile Number
-              </label>
-              <input
-                id="mobile"
-                name="mobile"
-                type="tel"
-                placeholder="+63 900 000 0000"
-                className="input-bordered"
-              />
-            </div>
-
-            <div>
-              <label
-                htmlFor="email"
-                className="block label text-sm font-semibold mb-2"
-                style={{ color: "#1c1c19" }}
-              >
-                Email Address
-              </label>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                placeholder="juan@example.com"
-                className="input-bordered"
-              />
-            </div>
-
-            <div>
-              <label
-                htmlFor="location"
-                className="block label text-sm font-semibold mb-2"
-                style={{ color: "#1c1c19" }}
-              >
-                Target Location
-              </label>
-              <input
-                id="location"
-                name="location"
-                type="text"
-                placeholder="City or Province"
-                className="input-bordered"
-              />
-            </div>
-
-            <div>
-              <label
-                htmlFor="capital"
-                className="block label text-sm font-semibold mb-2"
-                style={{ color: "#1c1c19" }}
-              >
-                Available Capital
-              </label>
-              <select id="capital" name="capital" className="input-bordered appearance-none cursor-pointer">
-                <option value="">Select a range</option>
-                <option>Below ₱500,000</option>
-                <option>₱500,000 – ₱1,000,000</option>
-                <option>₱1,000,000 – ₱2,000,000</option>
-                <option>Above ₱2,000,000</option>
-              </select>
-            </div>
-
-            <button
-              type="submit"
-              className="w-full bg-[#501818] text-white py-4 rounded-lg font-headline font-bold text-lg hover:bg-[#340406] transition-all duration-200 active:scale-[0.97] mt-4"
-            >
-              Submit Inquiry
-            </button>
-
-            <p className="text-xs text-center font-body mt-4" style={{ color: "#534342" }}>
-              By submitting, you agree to our Terms of Service &amp; Privacy Policy.
-            </p>
-          </form>
+                <p className="text-xs text-center font-body mt-4" style={{ color: "#534342" }}>
+                  By submitting, you agree to our Terms of Service &amp; Privacy Policy.
+                </p>
+              </form>
+            )}
+          </div>
         </motion.div>
       </div>
     </section>
